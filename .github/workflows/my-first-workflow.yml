@@ -1,0 +1,16 @@
+name: Workflow-1
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: input a name to use
+        required: true
+        default: Tomas
+  schedule:
+    - cron: '*/15 6 * * *'
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "hello ${inputs.name}"
